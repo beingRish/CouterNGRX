@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
+import { provideState, provideStore, StoreModule } from '@ngrx/store';
+import { counterReducer } from './states/counter/counter.reducer';
 import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
@@ -16,9 +18,13 @@ import { CounterComponent } from './counter/counter.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}, {})
   ],
-  providers: [],
+  providers: [
+    provideStore(),
+    provideState({name: 'counter', reducer: counterReducer})
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
