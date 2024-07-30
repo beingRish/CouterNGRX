@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({count: counterReducer}, {})
   ],
   providers: [
     provideStore(),

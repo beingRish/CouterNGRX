@@ -11,11 +11,13 @@ import { decrement, increament, reset } from '../states/counter/counter.action'
   styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
-  count$: Observable<number> = new Observable;
+  count$: Observable<any> = new Observable;
 
   constructor(private store: Store<AppState>){
 
     this.count$ = this.store.select(selectCount);
+    console.log('count',this.count$);
+    
   }
 
   increment(){
