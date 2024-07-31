@@ -2,21 +2,20 @@ import { createReducer, on } from '@ngrx/store'
 import { changeChannelName, customincrement, decrement, increament, reset } from './counter.action'
 
 export interface CounterState {
-    count : number,
+    counter : number,
     channelName: string
 }
 
 export const initialCounterState: CounterState = {
-    count: 0,
+    counter: 0,
     channelName: 'Leela Web Dev'
 }
 
 export const counterReducer = createReducer(
     initialCounterState,
-    on(increament, state => ({...state, count: state.count + 1})),
-    on(decrement, state => ({...state, count: state.count - 1})),
-    on(reset, state => ({...state, count: 0})),
-    on(customincrement, (state, action) => ({...state, count:  state.count + action.count})),
+    on(increament, state => ({...state, counter: state.counter + 1})),
+    on(decrement, state => ({...state, counter: state.counter - 1})),
+    on(reset, state => ({...state, counter: 0})),
+    on(customincrement, (state, action) => ({...state, counter:  state.counter + action.count})),
     on(changeChannelName, (state) => ({...state, channelName: 'Modified Leela Web Dev'}))
-
 )

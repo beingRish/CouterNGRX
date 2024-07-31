@@ -1,14 +1,14 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { AppState } from "../app.state";
 
-const selectCounterState = createFeatureSelector<AppState>('counter')
+const getCounter = createFeatureSelector<AppState>('counter')
 
 export const selectCount = createSelector(
-    selectCounterState,
+    getCounter,
     (state) => state.counter
 )
 
 export const selectChannel = createSelector(
-    selectCounterState, 
+    getCounter, 
     (state) => state.channelName
 )
